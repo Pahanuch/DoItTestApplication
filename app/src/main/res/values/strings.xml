@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">DoItTestApplication</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_username">Username</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="action_register">Register</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+
+    <string name="network_error">Network error. Try again please!</string>
+    <string name="uknown_error">Uknown error</string>
+    <string name="loading_text">Loading...</string>
+    <string name="error_title">Error</string>
+    <string name="message_title">Message</string>
+
+    <string name="internal_storage">Internal storage</string>
+    <string name="logout_text">Logout</string>
+
+    <string name="no_items_text">Empty List</string>
+
+    <string name="menu_action_add_picture">Add Picture</string>
+    <string name="menu_action_logout">Logout</string>
+    <string name="menu_action_generate_gif">Generate Gif</string>
+    <string name="menu_action_send_picture">Send Picture</string>
+    <string name="hint_description">Description</string>
+    <string name="hint_tag">Tag</string>
+    <string name="logout_message">Do you really want to logout?</string>
+    <string name="logout_title">Logout</string>
+    <string name="avatar_empty_error">Please upload your avatar!</string>
+    <string name="picture_empty_error">Please upload your picture!</string>
+    <string name="message_photo_uploaded_success">You have successfully uploaded a photo!</string>
+
+</resources>
