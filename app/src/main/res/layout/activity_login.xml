@@ -53,7 +53,6 @@
 
         <Button
             android:id="@+id/signInButton"
-            style="?android:textAppearanceSmall"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/activity_vertical_margin"
@@ -62,9 +61,9 @@
 
         <Button
             android:id="@+id/registerButton"
-            style="?android:textAppearanceSmall"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
             android:text="@string/action_register"
             android:textStyle="bold" />
 
