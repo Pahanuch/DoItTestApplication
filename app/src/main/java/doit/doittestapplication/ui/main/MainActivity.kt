@@ -95,6 +95,11 @@ class MainActivity : MainBarActivity(), MainView, PicturesListAdapter.OnItemClic
         swRefresh.isRefreshing = false
     }
 
+    override fun showLoginForm() {
+        finish()
+        startActivity<LoginActivity>()
+    }
+
     private fun showLoginScreen(){
         finish()
         startActivity<LoginActivity>()
@@ -123,9 +128,8 @@ class MainActivity : MainBarActivity(), MainView, PicturesListAdapter.OnItemClic
     private fun logout() {
         alert(getString(R.string.logout_message), getString(R.string.logout_title)) {
             yesButton {
-                Storage.clearToken()
-                finish()
-                startActivity<LoginActivity>() }
+                presenter.logout()
+            }
             noButton {}
         }.show()
     }

@@ -11,4 +11,6 @@ interface MainView : BaseView {
     fun showGifPicture(gif : GifResponse)
 
     fun hideSwRefresh()
+
+    fun showLoginForm()
 }

@@ -1,22 +1,35 @@
 package doit.doittestapplication.data.repository
 
+import android.net.Uri
+import doit.doittestapplication.App
 import doit.doittestapplication.data.api.ApiFactory
 import doit.doittestapplication.data.api.model.*
 import doit.doittestapplication.data.api.service.MainService
 import doit.doittestapplication.data.storage.Storage
+import doit.doittestapplication.utils.PathUtil
 import io.reactivex.Single
+import okhttp3.MediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
+import java.io.File
 
 class MainRepositoryImpl : MainRepository {
+
+    companion object {
+        const val IMAGE_NAME = "avatar"
+    }
 
     override fun registration(username : RequestBody,
                               email : RequestBody,
                               password : RequestBody,
-                              file :  MultipartBody.Part): Single<AuthResponse> {
+                              imageFileUri :  Uri): Single<AuthResponse> {
+
+        val file = File(PathUtil.getPath(App.context, imageFileUri))
+        val requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), file)
+        val avatarBody = MultipartBody.Part.createFormData(IMAGE_NAME, file.name, requestFile)
 
         return ApiFactory.getRetrofit(MainService::class.java)
-                .registration(username, email, password, file)
+                .registration(username, email, password, avatarBody)
     }
 
     override fun login(user: SignInRequestBody): Single<AuthResponse> {

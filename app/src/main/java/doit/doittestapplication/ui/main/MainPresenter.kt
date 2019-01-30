@@ -3,6 +3,7 @@ package doit.doittestapplication.ui.main
 import com.arellomobile.mvp.InjectViewState
 import doit.doittestapplication.addSchedulers
 import doit.doittestapplication.data.repository.MainRepositoryProvider
+import doit.doittestapplication.data.storage.Storage
 import doit.doittestapplication.ui.base.BasePresenter
 import io.reactivex.disposables.Disposable
 import java.util.concurrent.TimeUnit
@@ -41,6 +42,11 @@ class MainPresenter : BasePresenter<MainView>() {
                     viewState.showGifPicture(it)
                 }, this::handleError)
 
+    }
+
+    fun logout(){
+        Storage.clearToken()
+        viewState.showLoginForm()
     }
 
     private fun dispose(){

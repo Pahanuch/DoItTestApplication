@@ -13,19 +13,14 @@ import com.arellomobile.mvp.presenter.InjectPresenter
 import doit.doittestapplication.R
 
 import kotlinx.android.synthetic.main.activity_registration.*
-import okhttp3.MediaType
-import okhttp3.MultipartBody
-import okhttp3.RequestBody
 import android.content.Intent
 import android.util.Patterns
 import com.bumptech.glide.Glide
 import doit.doittestapplication.ui.base.WithBakButtonBarActivity
 import doit.doittestapplication.ui.main.MainActivity
 import doit.doittestapplication.utils.AppUtil
-import doit.doittestapplication.utils.PathUtil
 import doit.doittestapplication.utils.PermissionManager
 import org.jetbrains.anko.startActivity
-import java.io.File
 
 
 class RegistrationActivity : WithBakButtonBarActivity(), RegistrationView {
@@ -123,13 +118,8 @@ class RegistrationActivity : WithBakButtonBarActivity(), RegistrationView {
         if (cancel) {
             focusView?.requestFocus()
         } else {
-
-            val file = File(PathUtil.getPath(this, imageFileUri))
-            val requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), file)
-            val avatarBody = MultipartBody.Part.createFormData("avatar", file.name, requestFile)
-
             presenter.registration(AppUtil.parseStringIntoRequestBody(usernameStr), AppUtil.parseStringIntoRequestBody(emailStr),
-                    AppUtil.parseStringIntoRequestBody(passwordStr), avatarBody)
+                    AppUtil.parseStringIntoRequestBody(passwordStr), imageFileUri!!)
         }
     }
 

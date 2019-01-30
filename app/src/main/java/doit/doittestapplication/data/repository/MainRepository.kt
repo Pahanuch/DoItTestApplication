@@ -1,5 +1,6 @@
 package doit.doittestapplication.data.repository
 
+import android.net.Uri
 import doit.doittestapplication.data.api.model.*
 import io.reactivex.Single
 import okhttp3.MultipartBody
@@ -10,7 +11,7 @@ interface MainRepository{
     fun registration(username : RequestBody,
                      email : RequestBody,
                      password : RequestBody,
-                     file :  MultipartBody.Part) : Single<AuthResponse>
+                     imageFileUri : Uri) : Single<AuthResponse>
 
     fun login(user : SignInRequestBody) : Single<AuthResponse>
 
